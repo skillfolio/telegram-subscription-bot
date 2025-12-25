@@ -1,40 +1,28 @@
-# bot_core.py
-from aiogram import Bot, Dispatcher, types
-from aiogram.filters import Command
-from aiogram.enums import ChatMemberStatus
-from config import CHANNEL_ID  # Импортируем общий канал
+import asyncio
+import os
+import sys
 
-def create_bot(token: str, bot_name: str = "Бот"):
-    """Создает и настраивает экземпляр бота с общей логикой."""
-    bot = Bot(token=token)
-    dp = Dispatcher()
+from bot_core import create_bot
 
-    # ОБЩАЯ ФУНКЦИЯ ПРОВЕРКИ ПОДПИСКИ
-    async def check_sub(user_id: int) -> bool:
-        try:
-            member = await bot.get_chat_member(CHANNEL_ID, user_id)
-            return member.status in [ChatMemberStatus.CREATOR, ChatMemberStatus.ADMINISTRATOR, ChatMemberStatus.MEMBER]
-        except:
-            return False
 
-    # ОБЩАЯ КОМАНДА /start
-    @dp.message(Command("start"))
-    async def cmd_start(message: types.Message):
-        if await check_sub(message.from_user.id):
-            await message.answer(f"✅ Вы подписаны! Добро пожаловать в {bot_name}.")
-        else:
-            kb = types.InlineKeyboardMarkup(inline_keyboard=[
-                [types.InlineKeyboardButton(text="📢 Подписаться на канал", url=f"https://t.me/{CHANNEL_ID.lstrip('@')}")],
-                [types.InlineKeyboardButton(text="✅ Я подписался", callback_data="check")]
-            ])
-            await message.answer(f"Для работы с {bot_name} подпишитесь на канал: {CHANNEL_ID}", reply_markup=kb)
+async def run_bot():
+    
+    """Запускает одного бота. Его имя и токен берутся из переменных окружения."""
+    # Имя бота (например, NEWS_BOT) берём из переменной окружения BOT_INSTANCE_NAME
+    bot_instance_name = os.getenv("BOT_INSTANCE_NAME", "DEFAULT_BOT")
+    # Токен берём из переменной окружения с тем же именем, что и BOT_INSTANCE_NAME
+    bot_token = os.getenv(bot_instance_name)
 
-    # ОБЩАЯ ПРОВЕРКА ПО КНОПКЕ
-    @dp.callback_query(lambda c: c.data == "check")
-    async def callback_check(callback: types.CallbackQuery):
-        if await check_sub(callback.from_user.id):
-            await callback.message.edit_text(f"✅ Отлично! {bot_name} готов к работе.")
-        else:
-            await callback.answer("❌ Вы всё ещё не подписаны.", show_alert=True)
+if not bot_token:
+        print(
+            f"❌ Ошибка: Для экземпляра '{bot_instance_name}' не найден токен в переменной окружения."
+        )
+        sys.exit(1)
 
-    return bot, dp, bot_name
+  bot, dp, bot_name = create_bot(token=bot_token, bot_name=bot_instance_name)
+    print(f"🚀 Запускается бот: {bot_name} (экземпляр: {bot_instance_name})")
+    await dp.start_polling(bot)
+
+
+if __name__ == "__main__":
+    asyncio.run(run_bot())
