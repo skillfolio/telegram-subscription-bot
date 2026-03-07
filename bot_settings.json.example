@@ -1,0 +1,23 @@
+{
+  "channel": {
+    "id": -1002634329403,
+    "invite_link": "https://t.me/+XXXXXXXXXXXX"
+  },
+  "bots": [
+    {
+      "name": "Sales Bot",
+      "token_env": "SALES_BOT_TOKEN"
+    },
+    {
+      "name": "Support Bot",
+      "token_env": "SUPPORT_BOT_TOKEN"
+    }
+  ],
+  "messages": {
+    "success": "✅ Отлично! {bot_name} готов к работе.",
+    "subscribe_prompt": "Для работы с {bot_name} подпишитесь на канал и нажмите «Проверить подписку».",
+    "not_subscribed_alert": "❌ Вы всё ещё не подписаны.",
+    "subscribe_button": "📣 Подписаться на канал",
+    "check_button": "✅ Проверить подписку"
+  }
+}

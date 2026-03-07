@@ -1,17 +1,18 @@
 import asyncio
 import os
-import sys
 
 from aiogram import Bot
 from aiogram.enums import ChatMemberStatus
 
-from config import CHANNEL_ID
+from config import load_app_config
 
 
 async def main() -> int:
+    app_config = load_app_config()
+
     bot_token = os.getenv("BOT_TOKEN")
     user_id_raw = os.getenv("USER_ID")
-    channel_id = os.getenv("CHANNEL_ID", CHANNEL_ID)
+    channel_id = int(os.getenv("CHANNEL_ID", app_config.channel_id))
 
     if not bot_token:
         print("❌ BOT_TOKEN is not set.")
