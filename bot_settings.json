@@ -1,0 +1,40 @@
+{
+  "channel": {
+    "id": -1002634329403,
+    "invite_link": "https://t.me/+6X0TJ_GZcp5jZTMy"
+  },
+  "bots": [
+    { "name": "AIHELPER", "token_env": "AIHELPER" },
+    { "name": "ANALISEFOOD", "token_env": "ANALISEFOOD" },
+    { "name": "BIRP", "token_env": "BIRP" },
+    { "name": "CEASER", "token_env": "CEASER" },
+    { "name": "CHOPOS", "token_env": "CHOPOS" },
+    { "name": "COMMUNACATIONAN", "token_env": "COMMUNACATIONAN" },
+    { "name": "CREATIVEUROK", "token_env": "CREATIVEUROK" },
+    { "name": "DARWIN", "token_env": "DARWIN" },
+    { "name": "EINSTEIN", "token_env": "EINSTEIN" },
+    { "name": "EMOTIONSANALIZ", "token_env": "EMOTIONSANALIZ" },
+    { "name": "FEINMAN", "token_env": "FEINMAN" },
+    { "name": "GAIMOS", "token_env": "GAIMOS" },
+    { "name": "KUMI_BOT", "token_env": "KUMI_BOT" },
+    { "name": "MUSEUMGUIDE", "token_env": "MUSEUMGUIDE" },
+    { "name": "NUTRISIOLOG", "token_env": "NUTRISIOLOG" },
+    { "name": "NY", "token_env": "NY" },
+    { "name": "ONEGIN", "token_env": "ONEGIN" },
+    { "name": "PRIORETIZATOR", "token_env": "PRIORETIZATOR" },
+    { "name": "SCAMPER", "token_env": "SCAMPER" },
+    { "name": "SOAP", "token_env": "SOAP" },
+    { "name": "SPEAK_COACH", "token_env": "SPEAK_COACH" },
+    { "name": "SUMMARY", "token_env": "SUMMARY" },
+    { "name": "SUPERVISOR", "token_env": "SUPERVISOR" },
+    { "name": "TYZVEZDA", "token_env": "TYZVEZDA" },
+    { "name": "VAIMOS", "token_env": "VAIMOS" }
+  ],
+  "messages": {
+    "success": "✅ Отлично! {bot_name} готов к работе.",
+    "subscribe_prompt": "Для работы с бесплатным {bot_name} подпишитесь на канал ИИ Мастер Классы от Алексея Шиманского и нажмите «Проверить подписку».",
+    "not_subscribed_alert": "❌ Вы всё ещё не подписаны.",
+    "subscribe_button": "📣 Подписаться на канал",
+    "check_button": "✅ Проверить подписку"
+  }
+}
