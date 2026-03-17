@@ -1,0 +1,40 @@
+{
+  "channel": {
+    "id": -100XXXXXXXXXX,
+    "invite_link": "https://t.me/+YOUR_INVITE_LINK"
+  },
+  "bots": [
+    { "name": "AIHELPER", "token_env": "7383813472:AAEbM-HY562j_bM3l6TFhhMUzQLBO0K4d0o" },
+    { "name": "ANALISEFOOD", "token_env": "8411482133:AAE2F_gRDxkImJ7pl-_CnyYq6Jnoxa0F_qE" },
+    { "name": "BIRP", "token_env": "8331662918:AAH0CtMxFzGmeCWZKbaFTp7ODl8NDYK5BHc" },
+    { "name": "CEASER", "token_env": "8282198609:AAGIOmzd_ByRuKfFhD70TpyuUUw9A_P7spw" },
+    { "name": "CHOPOS", "token_env": "8283670575:AAHnIUUCO6Hl9v-Ss4PkBBwEEPdrTNy3Nqw" },
+    { "name": "COMMUNACATIONAN", "token_env": "8467497220:AAFwjKHSC6sZ05BrArc7I5noiq4n5gZj-1Q" },
+    { "name": "CREATIVEUROK", "token_env": "8245029606:AAFr3j4o1YIwJHc3B6ah3yrif8ww-te9gZQ" },
+    { "name": "DARWIN", "token_env": "7344687010:AAF8QfC-bsjRDeu7gFHQBEp_YJIHx7uBrt4" },
+    { "name": "EINSTEIN", "token_env": "8334522760:AAGCnSXUiutmbCzL5XlatuwBxUqinWQZKfY" },
+    { "name": "EMOTIONSANALIZ", "token_env": "8296874421:AAG_sO9cg95Mb-HvXqoakqtGKZvB03Ucs-M" },
+    { "name": "FEINMAN", "token_env": "8441805618:AAFBuOD0sUQ8HLXdWXii9-TF522yG777IBw" },
+    { "name": "GAIMOS", "token_env": "8222985595:AAFTCM9I5GThdvEnC5N0g9tT6TjiWNLUE0o" },
+    { "name": "KUMI_BOT", "token_env": "8407859146:AAHVPW3klkBhJPMu-Dn_IXwVgFj7FgJI7Oc" },
+    { "name": "MUSEUMGUIDE", "token_env": "8789388015:AAHW-rkH_h-U1uOxsGkrA4PwBaOiyAPme74" },
+    { "name": "NUTRISIOLOG", "token_env": "8133245415:AAG-SIqvSheOGOO1c-YW823O_cCYd-VKvRg" },
+    { "name": "NY", "token_env": "8506406180:AAGEQaH9Pe7ob5kTR0zQKiM3Tc_3ukmu77w" },
+    { "name": "ONEGIN", "token_env": "8345702667:AAE1MNnOBYlmnwT7gv4wm4I7COctDDaD97U" },
+    { "name": "PRIORETIZATOR", "token_env": "8528531396:AAHaQRdLktL-6NjUlJ0im35JWh9Z9ZsEvRE" },
+    { "name": "SCAMPER", "token_env": "7488741824:AAE2qHldNownxuRTe6fjXyx09V0EP8F8Opw" },
+    { "name": "SOAP", "token_env": "7908733094:AAHJx7ClwrFMuuzVjmwq4w08m44DWB397Lc" },
+    { "name": "SPEAK_COACH", "token_env": "8368530482:AAE5aU6BK29__BqjWu5PFtindzHv4xstrPk" },
+    { "name": "SUMMARY", "token_env": "8283009979:AAEpkLQy6EIGPrZwX0frbqOlEWjygpgZZ9E" },
+    { "name": "SUPERVISOR", "token_env": "8504455775:AAH00dMhzTSpwWXPCoXuApYboVapMzhQlfI" },
+    { "name": "TYZVEZDA", "token_env": "8328837816:AAERVPnqEStVteEpbtyRvvWjg0aFXjccU4M" },
+    { "name": "VAIMOS", "token_env": "8038071976:AAHDEmAO5_EqW-m9Ekjac4W_bEmGNeSCabg" }
+  ],
+  "messages": {
+    "success": "✅ Отлично! {bot_name} готов к работе.",
+    "subscribe_prompt": "Для работы с бесплатным {bot_name} подпишитесь на канал ИИ Мастер Классы от Алексея Шиманского и нажмите «Проверить подписку».",
+    "not_subscribed_alert": "❌ Вы всё ещё не подписаны.",
+    "subscribe_button": "📣 Подписаться на канал",
+    "check_button": "✅ Проверить подписку"
+  }
+}
