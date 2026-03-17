@@ -3,6 +3,7 @@ import os
 
 from aiogram import Bot
 from aiogram.enums import ChatMemberStatus
+from aiogram.types import ChatMemberRestricted
 
 from config import load_app_config
 
@@ -35,6 +36,9 @@ async def main() -> int:
             ChatMemberStatus.ADMINISTRATOR,
             ChatMemberStatus.MEMBER,
         }
+
+        if not subscribed and isinstance(member, ChatMemberRestricted):
+            subscribed = bool(member.is_member)
         if subscribed:
             print("✅ subscribed")
             return 0
