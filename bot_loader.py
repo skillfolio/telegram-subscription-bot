@@ -33,18 +33,51 @@ async def _run_single_bot(bot_definition: BotDefinition, app_config):
         await bot.session.close()
 
 
+def _get_runnable_bots(bot_definitions: list[BotDefinition]) -> list[BotDefinition]:
+    runnable: list[BotDefinition] = []
+    seen_tokens: dict[str, str] = {}
+
+    for bot_definition in bot_definitions:
+        bot_token = os.getenv(bot_definition.token_env)
+        if not bot_token:
+            print(
+                f"⚠️ Пропуск бота '{bot_definition.name}': "
+                f"переменная окружения '{bot_definition.token_env}' не найдена."
+            )
+            continue
+
+        duplicate_name = seen_tokens.get(bot_token)
+        if duplicate_name:
+            print(
+                f"⚠️ Пропуск бота '{bot_definition.name}': токен совпадает с ботом "
+                f"'{duplicate_name}'. Проверьте переменные окружения — одинаковые токены "
+                f"вызывают TelegramConflictError."
+            )
+            continue
+
+        seen_tokens[bot_token] = bot_definition.name
+        runnable.append(bot_definition)
+
+    return runnable
+
+
 async def run_bots():
     app_config = load_app_config()
 
-    tasks = [asyncio.create_task(_run_single_bot(bot_definition, app_config)) for bot_definition in app_config.bots]
+    runnable_bots = _get_runnable_bots(app_config.bots)
 
-    if not tasks:
+    if not app_config.bots:
         print("❌ Не найдено ни одного бота в конфигурации.")
         sys.exit(1)
 
-    if all(os.getenv(bot.token_env) is None for bot in app_config.bots):
-        print("❌ Ни для одного бота не найден токен в переменных окружения.")
+    if not runnable_bots:
+        print(
+            "❌ Нет ботов для запуска: проверьте токены в переменных окружения и "
+            "убедитесь, что токены не дублируются."
+        )
         sys.exit(1)
+
+    tasks = [asyncio.create_task(_run_single_bot(bot_definition, app_config)) for bot_definition in runnable_bots]
 
     try:
         await asyncio.gather(*tasks)

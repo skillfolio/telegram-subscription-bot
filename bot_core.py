@@ -1,5 +1,6 @@
 from aiogram import Bot, Dispatcher, types
 from aiogram.enums import ChatMemberStatus
+from aiogram.types import ChatMemberRestricted
 from aiogram.filters import Command
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 
@@ -20,11 +21,18 @@ def create_bot(
     async def is_subscribed(user_id: int) -> bool:
         try:
             member = await bot.get_chat_member(channel_id, user_id)
-            return member.status in {
+
+            if member.status in {
                 ChatMemberStatus.MEMBER,
                 ChatMemberStatus.ADMINISTRATOR,
                 ChatMemberStatus.CREATOR,
-            }
+            }:
+                return True
+
+            if isinstance(member, ChatMemberRestricted):
+                return bool(member.is_member)
+
+            return False
         except Exception:
             return False
 
