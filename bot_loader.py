@@ -29,6 +29,8 @@ async def _run_single_bot(bot_definition: BotDefinition, app_config):
 
     try:
         await dp.start_polling(bot)
+    except Exception as e:
+        print(f"❌ Ошибка в работе бота '{bot_definition.name}': {e}", file=sys.stderr)
     finally:
         await bot.session.close()
 
